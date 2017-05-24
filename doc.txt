@@ -1,0 +1,11 @@
+Variables start with uppercase characters, So X, This, A_long_name are all Variables
+
+Names beginning with lowercase are not variables but are symbolic constants called atoms
+
+Modules are files with the extension .erl
+
+Envoke compiler from cmd line
+erlc hello.erl
+
+Load the module from cmd line
+erl -noshell -s hello start -s init stop
