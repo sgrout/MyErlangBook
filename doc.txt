@@ -9,3 +9,18 @@ erlc hello.erl
 
 Load the module from cmd line
 erl -noshell -s hello start -s init stop
+
+Pid ! Msg - send the message Msg to the process Pid
+Client ! {self(), file:list_dir(Dir)}; - The self argument identifies the process sending
+
+receive
+    {Client, list_dir} -> Client ! {self(), file:list_dir(Dir)};
+    {Client, {get_file, File}} -> Full = filename:join(Dir, File), Client ! {self(), file:read_file(Full)}
+            
+    end
+
+receive
+    Pattern1 ->
+        Actions1;
+    Pattern2 -> 
+        Actions2 ->
